@@ -1,0 +1,26 @@
+<h3>MAX UPLOAD SIZE 16MB</h3>
+<div>
+    <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit()">
+        <div>
+            <input type="file" multiple="multiple" name="textFile" (change)="onFileSelect($event)"/>
+        </div>
+        <div>
+            <button type="submit">Upload</button>
+        </div>
+    </form>
+</div>
+
+<ul>
+    <li *ngFor="let item of this.pairs?.fileIds; let i = index">
+        <a href="#" (click)=getFile(item)>download file words in interval: {{item.intervalName.substring(1, item.intervalName.length)}}</a>
+    </li>
+</ul>
+
+<ul>
+    <li *ngFor="let item of this.pairs?.pairs; let i = index">
+        <a>{{item.word}} - {{item.count}} </a>
+    </li>
+</ul>
+<div *ngIf="errorMessage">
+    <h3>{{errorMessage.toString()}}</h3>
+</div>
