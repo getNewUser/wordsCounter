@@ -10,11 +10,11 @@ export class FileDownloadUpload {
     constructor(private http: HttpClient){}
 
     uploadFiles(formData): Observable<IUploadResponse> {
-        return this.http.post<IUploadResponse>('http://localhost:8080/file', formData);
+        return this.http.post<IUploadResponse>('https://word-counter-server.herokuapp.com/file', formData);
     }
 
     getFile(id: string) {
-        return this.http.get<any>('http://localhost:8080/file?id=' + id);
+        return this.http.get<any>('https://word-counter-server.herokuapp.com/file?id=' + id);
     }
 }
 
